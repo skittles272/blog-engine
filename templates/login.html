@@ -1,32 +1,30 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 
 {% block content %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"/>
-    <title>Login</title>
+        <title>Sign Up</title>
+    <div class="login-container" align="center">
 
-    <div class="content">
+        <form method="post" class="login"> {% csrf_token %}
+            
+            <h2>Login</h2>
+            
+            <div>
+                <label for="id_username"></label>
+                <input type="text" name="email" placeholder="Email address" autofocus required
+                       id="id_username">
+            </div>
 
-        <div class="login-column">
-            <form method="post"> {% csrf_token %}
+            <div>
+                <label for="id_password1"></label>
+                <input type="password" name="password1" placeholder="Password" autofocus required
+                       id="id_password1">
+            </div>
 
-                <div>
 
-                    <label for="id_username"></label>
-                    <input type="text" name="username" autofocus required
-                           id="id_username">
+            <button type="submit">Login</button>
+        </form>
 
-                </div>
-                <div>
-
-                    <label for="id_password"></label>
-                    <input type="password" name="password" autofocus required
-                           id="id_password">
-
-                </div>
-                <button type="submit">Login</button>
-            </form>
-        </div>
     </div>
 {% endblock %}
